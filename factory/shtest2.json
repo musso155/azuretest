@@ -1,0 +1,9 @@
+{
+	"name": "shtest2",
+	"location": "koreacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "005be6ae-ecd7-4419-970e-5601293583ed",
+		"tenantId": "98a4a14e-de33-4594-9f0b-71479427cf55"
+	}
+}
