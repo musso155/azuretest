@@ -1,0 +1,49 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory 이름",
+			"defaultValue": "shtest2"
+		},
+		"AzureMySql1_connectionString": {
+			"type": "secureString",
+			"metadata": "'AzureMySql1'의 'connectionString'에 대한 보안 문자열"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "스토리지 계정 연결 된 ARM 서식 파일을 포함 하는 URI입니다."
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "연결된 ARM 템플릿을 포함하는 스토리지 계정에 대한 SAS 토큰"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "shtest2_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureMySql1_connectionString": {
+						"value": "[parameters('AzureMySql1_connectionString')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
