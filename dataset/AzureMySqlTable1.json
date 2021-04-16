@@ -1,0 +1,190 @@
+{
+	"name": "AzureMySqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureMySql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureMySqlTable",
+		"schema": [
+			{
+				"name": "CustomerKey",
+				"type": "int",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "GeographyKey",
+				"type": "int",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "CustomerAlternateKey",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "Title",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "FirstName",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "MiddleName",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "LastName",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "NameStyle",
+				"type": "tinyint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "BirthDate",
+				"type": "date",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "MaritalStatus",
+				"type": "char",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "Suffix",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "Gender",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "EmailAddress",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "YearlyIncome",
+				"type": "int",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "TotalChildren",
+				"type": "int",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "NumberChildrenAtHome",
+				"type": "int",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "EnglishEducation",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "SpanishEducation",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "FrenchEducation",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "EnglishOccupation",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "SpanishOccupation",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "FrenchOccupation",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "HouseOwnerFlag",
+				"type": "char",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "NumberCarsOwned",
+				"type": "int",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "AddressLine1",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "AddressLine2",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "Phone",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "DateFirstPurchase",
+				"type": "date",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "CommuteDistance",
+				"type": "varchar",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"tableName": "dimcustomer"
+		}
+	}
+}
