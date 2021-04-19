@@ -1,0 +1,12 @@
+{
+	"name": "AzureB lobStorageshtest",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=asostorageshtest;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkFTT0RBVEFGQUNUT1JZU0hURVNUXzRjMjcwOTY5LWQ1N2ItNGQxNy1iZDZlLWRiODA5Yzk4NjZlZCINCn0="
+		}
+	}
+}

@@ -3,34 +3,11 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup1",
-				"type": "Lookup",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "AzureMySqlSource",
-						"queryTimeout": "02:00:00"
-					},
-					"dataset": {
-						"referenceName": "AzureMySqlTable1",
-						"type": "DatasetReference"
-					}
-				}
-			},
-			{
-				"name": "Copy data1",
+				"name": "gen2",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "Lookup1",
+						"activity": "mysql",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -63,356 +40,6 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"name": "CustomerKey",
-									"type": "Int32",
-									"physicalType": "int"
-								},
-								"sink": {
-									"type": "Int32",
-									"physicalType": "Int32",
-									"ordinal": 1
-								}
-							},
-							{
-								"source": {
-									"name": "GeographyKey",
-									"type": "Int32",
-									"physicalType": "int"
-								},
-								"sink": {
-									"type": "Int32",
-									"physicalType": "Int32",
-									"ordinal": 2
-								}
-							},
-							{
-								"source": {
-									"name": "CustomerAlternateKey",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 3
-								}
-							},
-							{
-								"source": {
-									"name": "Title",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 4
-								}
-							},
-							{
-								"source": {
-									"name": "FirstName",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 5
-								}
-							},
-							{
-								"source": {
-									"name": "MiddleName",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 6
-								}
-							},
-							{
-								"source": {
-									"name": "LastName",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 7
-								}
-							},
-							{
-								"source": {
-									"name": "NameStyle",
-									"type": "Boolean",
-									"physicalType": "tinyint"
-								},
-								"sink": {
-									"type": "Boolean",
-									"physicalType": "Boolean",
-									"ordinal": 8
-								}
-							},
-							{
-								"source": {
-									"name": "BirthDate",
-									"type": "DateTime",
-									"physicalType": "date"
-								},
-								"sink": {
-									"type": "DateTime",
-									"physicalType": "DateTime",
-									"ordinal": 9
-								}
-							},
-							{
-								"source": {
-									"name": "MaritalStatus",
-									"type": "String",
-									"physicalType": "char"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 10
-								}
-							},
-							{
-								"source": {
-									"name": "Suffix",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 11
-								}
-							},
-							{
-								"source": {
-									"name": "Gender",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 12
-								}
-							},
-							{
-								"source": {
-									"name": "EmailAddress",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 13
-								}
-							},
-							{
-								"source": {
-									"name": "YearlyIncome",
-									"type": "Int32",
-									"physicalType": "int"
-								},
-								"sink": {
-									"type": "Int32",
-									"physicalType": "Int32",
-									"ordinal": 14
-								}
-							},
-							{
-								"source": {
-									"name": "TotalChildren",
-									"type": "Int32",
-									"physicalType": "int"
-								},
-								"sink": {
-									"type": "Int32",
-									"physicalType": "Int32",
-									"ordinal": 15
-								}
-							},
-							{
-								"source": {
-									"name": "NumberChildrenAtHome",
-									"type": "Int32",
-									"physicalType": "int"
-								},
-								"sink": {
-									"type": "Int32",
-									"physicalType": "Int32",
-									"ordinal": 16
-								}
-							},
-							{
-								"source": {
-									"name": "EnglishEducation",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 17
-								}
-							},
-							{
-								"source": {
-									"name": "SpanishEducation",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 18
-								}
-							},
-							{
-								"source": {
-									"name": "FrenchEducation",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 19
-								}
-							},
-							{
-								"source": {
-									"name": "EnglishOccupation",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 20
-								}
-							},
-							{
-								"source": {
-									"name": "SpanishOccupation",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 21
-								}
-							},
-							{
-								"source": {
-									"name": "FrenchOccupation",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 22
-								}
-							},
-							{
-								"source": {
-									"name": "HouseOwnerFlag",
-									"type": "String",
-									"physicalType": "char"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 23
-								}
-							},
-							{
-								"source": {
-									"name": "NumberCarsOwned",
-									"type": "Int32",
-									"physicalType": "int"
-								},
-								"sink": {
-									"type": "Int32",
-									"physicalType": "Int32",
-									"ordinal": 24
-								}
-							},
-							{
-								"source": {
-									"name": "AddressLine1",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 25
-								}
-							},
-							{
-								"source": {
-									"name": "AddressLine2",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 26
-								}
-							},
-							{
-								"source": {
-									"name": "Phone",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 27
-								}
-							},
-							{
-								"source": {
-									"name": "DateFirstPurchase",
-									"type": "DateTime",
-									"physicalType": "date"
-								},
-								"sink": {
-									"type": "DateTime",
-									"physicalType": "DateTime",
-									"ordinal": 28
-								}
-							},
-							{
-								"source": {
-									"name": "CommuteDistance",
-									"type": "String",
-									"physicalType": "varchar"
-								},
-								"sink": {
-									"type": "String",
-									"physicalType": "String",
-									"ordinal": 29
-								}
-							}
-						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
@@ -428,12 +55,839 @@
 				],
 				"outputs": [
 					{
+						"referenceName": "AzureDataStorage",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "mysql",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "mysql",
+						"value": "mysql"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "AzureMySqlSource",
+						"queryTimeout": "02:00:00"
+					},
+					"dataset": {
+						"referenceName": "AzureMySqlTable1",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "csv_dw_1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "AzureB lobStorageshtest",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 1
+								},
+								"sink": {
+									"name": "CustomerKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 2
+								},
+								"sink": {
+									"name": "GeographyKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 3
+								},
+								"sink": {
+									"name": "CustomerAlternateKey",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 4
+								},
+								"sink": {
+									"name": "Title",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 5
+								},
+								"sink": {
+									"name": "FirstName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 6
+								},
+								"sink": {
+									"name": "MiddleName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 7
+								},
+								"sink": {
+									"name": "LastName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 8
+								},
+								"sink": {
+									"name": "NameStyle",
+									"type": "Boolean"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 9
+								},
+								"sink": {
+									"name": "BirthDate",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 10
+								},
+								"sink": {
+									"name": "MaritalStatus",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 11
+								},
+								"sink": {
+									"name": "Suffix",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 12
+								},
+								"sink": {
+									"name": "Gender",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 13
+								},
+								"sink": {
+									"name": "EmailAddress",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 14
+								},
+								"sink": {
+									"name": "YearlyIncome",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 15
+								},
+								"sink": {
+									"name": "TotalChildren",
+									"type": "Byte"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 16
+								},
+								"sink": {
+									"name": "NumberChildrenAtHome",
+									"type": "Byte"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 17
+								},
+								"sink": {
+									"name": "EnglishEducation",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 18
+								},
+								"sink": {
+									"name": "SpanishEducation",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 19
+								},
+								"sink": {
+									"name": "FrenchEducation",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 20
+								},
+								"sink": {
+									"name": "EnglishOccupation",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 21
+								},
+								"sink": {
+									"name": "SpanishOccupation",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 22
+								},
+								"sink": {
+									"name": "FrenchOccupation",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 23
+								},
+								"sink": {
+									"name": "HouseOwnerFlag",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 24
+								},
+								"sink": {
+									"name": "NumberCarsOwned",
+									"type": "Byte"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 25
+								},
+								"sink": {
+									"name": "AddressLine1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 26
+								},
+								"sink": {
+									"name": "AddressLine2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 27
+								},
+								"sink": {
+									"name": "Phone",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 28
+								},
+								"sink": {
+									"name": "DateFirstPurchase",
+									"type": "DateTime"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 29
+								},
+								"sink": {
+									"name": "CommuteDistance",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
 						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSynapseAnalyticsTable1",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "csv_dw_2",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "AzureB lobStorageshtest",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 1
+								},
+								"sink": {
+									"name": "GeographyKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 2
+								},
+								"sink": {
+									"name": "City",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 3
+								},
+								"sink": {
+									"name": "StateProvinceCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 4
+								},
+								"sink": {
+									"name": "StateProvinceName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 5
+								},
+								"sink": {
+									"name": "CountryRegionCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 6
+								},
+								"sink": {
+									"name": "EnglishCountryRegionName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 7
+								},
+								"sink": {
+									"name": "SpanishCountryRegionName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 8
+								},
+								"sink": {
+									"name": "FrenchCountryRegionName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 9
+								},
+								"sink": {
+									"name": "PostalCode",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 10
+								},
+								"sink": {
+									"name": "SalesTerritoryKey",
+									"type": "Int32"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DelimitedText2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSynapseAnalyticsTable2",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "csv_dw_3",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "demo/mysql/factinternetsales.txt"
+					},
+					{
+						"name": "Destination",
+						"value": "dbo.FactInternetSales"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "SqlDWSink",
+						"allowPolyBase": true,
+						"polyBaseSettings": {
+							"rejectValue": 0,
+							"rejectType": "value",
+							"useTypeDefault": true
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "AzureB lobStorageshtest",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 1
+								},
+								"sink": {
+									"name": "ProductKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 2
+								},
+								"sink": {
+									"name": "OrderDateKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 3
+								},
+								"sink": {
+									"name": "DueDateKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 4
+								},
+								"sink": {
+									"name": "ShipDateKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 5
+								},
+								"sink": {
+									"name": "CustomerKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 6
+								},
+								"sink": {
+									"name": "PromotionKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 7
+								},
+								"sink": {
+									"name": "CurrencyKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 8
+								},
+								"sink": {
+									"name": "SalesTerritoryKey",
+									"type": "Int32"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 9
+								},
+								"sink": {
+									"name": "SalesOrderNumber",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 10
+								},
+								"sink": {
+									"name": "SalesOrderLineNumber",
+									"type": "Byte"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 11
+								},
+								"sink": {
+									"name": "RevisionNumber",
+									"type": "Byte"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 12
+								},
+								"sink": {
+									"name": "OrderQuantity",
+									"type": "Int16"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 13
+								},
+								"sink": {
+									"name": "UnitPrice",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 14
+								},
+								"sink": {
+									"name": "ExtendedAmount",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 15
+								},
+								"sink": {
+									"name": "UnitPriceDiscountPct",
+									"type": "Single"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 16
+								},
+								"sink": {
+									"name": "DiscountAmount",
+									"type": "Single"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 17
+								},
+								"sink": {
+									"name": "ProductStandardCost",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 18
+								},
+								"sink": {
+									"name": "TotalProductCost",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 19
+								},
+								"sink": {
+									"name": "SalesAmount",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 20
+								},
+								"sink": {
+									"name": "TaxAmt",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 21
+								},
+								"sink": {
+									"name": "Freight",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 22
+								},
+								"sink": {
+									"name": "CustomerPONumber",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_rqj",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_rqj",
 						"type": "DatasetReference"
 					}
 				]
 			}
 		],
-		"annotations": []
-	}
+		"annotations": [],
+		"lastPublishTime": "2021-04-05T05:11:26Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }

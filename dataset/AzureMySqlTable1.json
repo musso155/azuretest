@@ -186,5 +186,6 @@
 		"typeProperties": {
 			"tableName": "dimcustomer"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

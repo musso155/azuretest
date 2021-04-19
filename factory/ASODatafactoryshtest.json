@@ -1,0 +1,9 @@
+{
+	"name": "ASODatafactoryshtest",
+	"location": "koreacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4412a315-184c-4a5c-90a4-2472e676fa2c",
+		"tenantId": "98a4a14e-de33-4594-9f0b-71479427cf55"
+	}
+}
