@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy_rqj",
+				"name": "csv_dw_1_copy1",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -13,28 +13,12 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": [
-					{
-						"name": "Source",
-						"value": "demo/mysql/factinternetsales.txt"
-					},
-					{
-						"name": "Destination",
-						"value": "dbo.FactInternetSales"
-					}
-				],
+				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings",
-							"skipLineCount": 0
-						}
+						"type": "AzureMySqlSource",
+						"query": "select\n'1' as CustomerKey,\nGeographyKey,\nCustomerAlternateKey,\nTitle,\nFirstName,\nMiddleName,\nLastName,\nNameStyle,\nBirthDate,\nMaritalStatus,\nSuffix,\nGender,\nEmailAddress,\nYearlyIncome,\nTotalChildren,\nNumberChildrenAtHome,\nEnglishEducation,\nSpanishEducation,\nFrenchEducation,\nEnglishOccupation,\nSpanishOccupation,\nFrenchOccupation,\nHouseOwnerFlag,\nNumberCarsOwned,\nAddressLine1,\nAddressLine2,\nPhone,\nDateFirstPurchase,\nCommuteDistance\nfrom dimcustomer",
+						"queryTimeout": "02:00:00"
 					},
 					"sink": {
 						"type": "SqlDWSink",
@@ -57,231 +41,10 @@
 						"mappings": [
 							{
 								"source": {
-									"type": "String",
-									"ordinal": 1
+									"name": "CustomerKey"
 								},
 								"sink": {
-									"name": "ProductKey",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 2
-								},
-								"sink": {
-									"name": "OrderDateKey",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 3
-								},
-								"sink": {
-									"name": "DueDateKey",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 4
-								},
-								"sink": {
-									"name": "ShipDateKey",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 5
-								},
-								"sink": {
-									"name": "CustomerKey",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 6
-								},
-								"sink": {
-									"name": "PromotionKey",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 7
-								},
-								"sink": {
-									"name": "CurrencyKey",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 8
-								},
-								"sink": {
-									"name": "SalesTerritoryKey",
-									"type": "Int32"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 9
-								},
-								"sink": {
-									"name": "SalesOrderNumber",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 10
-								},
-								"sink": {
-									"name": "SalesOrderLineNumber",
-									"type": "Byte"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 11
-								},
-								"sink": {
-									"name": "RevisionNumber",
-									"type": "Byte"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 12
-								},
-								"sink": {
-									"name": "OrderQuantity",
-									"type": "Int16"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 13
-								},
-								"sink": {
-									"name": "UnitPrice",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 14
-								},
-								"sink": {
-									"name": "ExtendedAmount",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 15
-								},
-								"sink": {
-									"name": "UnitPriceDiscountPct",
-									"type": "Single"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 16
-								},
-								"sink": {
-									"name": "DiscountAmount",
-									"type": "Single"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 17
-								},
-								"sink": {
-									"name": "ProductStandardCost",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 18
-								},
-								"sink": {
-									"name": "TotalProductCost",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 19
-								},
-								"sink": {
-									"name": "SalesAmount",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 20
-								},
-								"sink": {
-									"name": "TaxAmt",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 21
-								},
-								"sink": {
-									"name": "Freight",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 22
-								},
-								"sink": {
-									"name": "CarrierTrackingNumber",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"type": "String",
-									"ordinal": 22
-								},
-								"sink": {
-									"name": "CustomerPONumber",
+									"name": "userId",
 									"type": "String"
 								}
 							}
@@ -290,13 +53,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "SourceDataset_rqj",
+						"referenceName": "AzureMySqlTable1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_rqj",
+						"referenceName": "AzureSynapseAnalyticsTable1",
 						"type": "DatasetReference"
 					}
 				]
