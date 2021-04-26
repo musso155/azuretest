@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureMySqlSource",
-						"query": "select\n'1' as CustomerKey,\nGeographyKey,\nCustomerAlternateKey,\nTitle,\nFirstName,\nMiddleName,\nLastName,\nNameStyle,\nBirthDate,\nMaritalStatus,\nSuffix,\nGender,\nEmailAddress,\nYearlyIncome,\nTotalChildren,\nNumberChildrenAtHome,\nEnglishEducation,\nSpanishEducation,\nFrenchEducation,\nEnglishOccupation,\nSpanishOccupation,\nFrenchOccupation,\nHouseOwnerFlag,\nNumberCarsOwned,\nAddressLine1,\nAddressLine2,\nPhone,\nDateFirstPurchase,\nCommuteDistance\nfrom dimcustomer",
+						"query": "select\na.userId as userId,\na.username as username,\n'15' as userAverageSpeaking,\n(select count(reactionInfo) from usercontents where userid = a.userid and reactionInfo = '1') as reaction1,\n(select count(reactionInfo) from usercontents where userid = a.userid and reactionInfo = '2') as reaction2,\n(select count(reactionInfo) from usercontents where userid = a.userid and reactionInfo = '3') as reaction3,\n(select count(reactionInfo) from usercontents where userid = a.userid and reactionInfo = '4') as reaction4,\n(select count(reactionInfo) from usercontents where userid = a.userid and reactionInfo = '5') as reaction5,\n(select count(reactionInfo) from usercontents where userid = a.userid and reactionInfo = '6') as reaction6,\n(select count(reactionInfo) from usercontents where userid = a.userid and reactionInfo = '7') as reaction7,\n(select count(reactionInfo) from usercontents where userid = a.userid and reactionInfo = '8') as reaction8,\n'5' as averageQuestionCount\nfrom user a;",
 						"queryTimeout": "02:00:00"
 					},
 					"sink": {
@@ -41,10 +41,120 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "CustomerKey"
+									"name": "userId",
+									"type": "String"
 								},
 								"sink": {
 									"name": "userId",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "username"
+								},
+								"sink": {
+									"name": "userName",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "userAverageSpeaking",
+									"type": "String"
+								},
+								"sink": {
+									"name": "userAverageSpeaking",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "reaction1",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "reaction1",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "reaction2",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "reaction2",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "reaction3",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "reaction3",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "reaction4",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "reaction4",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "reaction5",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "reaction5",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "reaction6",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "reaction6",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "reaction7",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "reaction7",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "reaction8",
+									"type": "Int64"
+								},
+								"sink": {
+									"name": "reaction8",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "averageQuestionCount",
+									"type": "String"
+								},
+								"sink": {
+									"name": "averageQuestionCount",
 									"type": "String"
 								}
 							}
